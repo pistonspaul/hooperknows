@@ -123,6 +123,7 @@ class _AzureOpenAISettings(BaseSettings):
     embedding_endpoint: Optional[str] = None
     embedding_key: Optional[str] = None
     embedding_name: Optional[str] = None
+    use_inferencing_api: Optional[bool] = False
     
     @field_validator('tools', mode='before')
     @classmethod
@@ -756,6 +757,7 @@ class _BaseSettings(BaseSettings):
     auth_enabled: bool = True
     sanitize_answer: bool = False
     use_promptflow: bool = False
+    applicationinsights_connection_string: Optional[str] = None
 
 
 class _AppSettings(BaseModel):
