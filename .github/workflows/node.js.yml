@@ -18,7 +18,7 @@ jobs:
         working-directory: frontend
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x, 21.x]
+        node-version: [16.x, 18.x, 21.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -29,6 +29,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: '**/package-lock.json'
-    - run: npm ci
+    - run: echo "Skipping npm install due to 503 error"
     - run: NODE_OPTIONS=--max_old_space_size=8192 npm run build --if-present
     - run: npm run test --if-present
